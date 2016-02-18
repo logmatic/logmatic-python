@@ -9,6 +9,5 @@ setup(
     scripts=[],
     url='https://github.com/logmatic/logmatic-python',
     license='MIT',
-    description='Python plugin to send logs to Logmatic.io',
-    long_description=open('README').read()
+    description='Python plugin to send logs to Logmatic.io'
 )

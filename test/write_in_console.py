@@ -2,7 +2,7 @@ import logging
 import sys
 import socket
 
-sys.path.append('src/')
+sys.path.append('logmatic/')
 import logmatic
 
 logger = logging.getLogger()

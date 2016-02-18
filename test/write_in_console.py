@@ -10,7 +10,7 @@ import logmatic
 logger = logging.getLogger()
 
 handler = logging.StreamHandler()
-handler.setFormatter(logmatic.LogmaticFormatter(extra={"hello": "world","hostname":socket.gethostname()}))
+handler.setFormatter(logmatic.JsonFormatter(extra={"hello": "world","hostname":socket.gethostname()}))
 
 logger.addHandler(handler)
 logger.setLevel(logging.INFO)

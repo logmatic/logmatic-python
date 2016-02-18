@@ -8,14 +8,14 @@ It mainly contain a proper JSON formatter and a socket handler that streams logs
 ## Use the JSON formatter
 
 To use the JSON formatter, simply associate it to any handler such as the StreamHandler here.
- 
+
 ```python
 import logmatic-python
 
 logger = logging.getLogger()
 
 handler = logging.StreamHandler()
-handler.setFormatter(logmatic.LogmaticFormatter(extra={"hostname":socket.gethostname()}))
+handler.setFormatter(logmatic.JsonFormatter(extra={"hostname":socket.gethostname()}))
 
 logger.addHandler(handler)
 logger.setLevel(logging.INFO)
@@ -42,7 +42,7 @@ An exception will be displayed as follow - which suppresses the multiline issue 
 
 ## Stream log straight to Logmatic.io
 
-The LogmaticHandler can be coupled to the LogmaticFormatter as follow:
+The LogmaticHandler can be coupled to the JsonFormatter as follow:
 
 ```python
 import logmatic
@@ -50,7 +50,7 @@ import logmatic
 logger = logging.getLogger()
 
 handler = logmatic.LogmaticHandler("<your_api_key>")
-handler.setFormatter(logmatic.LogmaticFormatter(extra={"hostname":socket.gethostname()}))
+handler.setFormatter(logmatic.JsonFormatter(extra={"hostname":socket.gethostname()}))
 
 logger.addHandler(handler)
 logger.setLevel(logging.INFO)

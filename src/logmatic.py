@@ -4,7 +4,7 @@ from pythonjsonlogger import jsonlogger
 import datetime
 import socket
 
-class LogmaticFormatter(jsonlogger.JsonFormatter):
+class JsonFormatter(jsonlogger.JsonFormatter):
     def __init__(self,
             fmt = "%(asctime) %(name) %(processName) %(filename)  %(funcName) %(levelname) %(lineno) %(module) %(threadName) %(message)",
             datefmt = "%Y-%m-%dT%H:%M:%SZ",
@@ -22,7 +22,7 @@ class LogmaticFormatter(jsonlogger.JsonFormatter):
         if self._extra is not None:
             for key, value in self._extra.iteritems():
                 log_record[key] = value
-        return super(LogmaticFormatter, self).process_log_record(log_record)
+        return super(JsonFormatter, self).process_log_record(log_record)
 
 # Derive from object to force a new-style class and thus allow super() to work
 # on Python 2.6

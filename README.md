@@ -1,7 +1,7 @@
 # logmatic-python
 Python helpers to send logs to Logmatic.io.
 
-It mainly contain a proper JSON formatter and a socket handler that streams logs to Logmatic.io.
+It mainly contains a proper JSON formatter and a socket handler that streams logs directly to Logmatic.io - so no need to use a log shipper if you don't wan't to.
 
 # Usage
 

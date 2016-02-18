@@ -1,8 +1,6 @@
 import logging
 import sys
-import datetime
 import socket
-from pythonjsonlogger import jsonlogger
 
 sys.path.append('src/')
 import logmatic

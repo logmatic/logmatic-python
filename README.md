@@ -30,14 +30,40 @@ test_logger.info("classic message", extra={"special": "value", "run": 12})
 
 Returns the following format:
 ```javascript
-{"asctime": "2016-02-16T09:51:31Z", "name": "test", "processName": "MainProcess", "filename": "write_in_console.py", "funcName": "<module>", "levelname": "INFO", "lineno": 20, "module": "write_in_console", "threadName": "MainThread", "message": "classic message", "special": "value", "run": 12, "timestamp": "2016-02-16T09:51:31Z", "hostname": "<your_hostname>"}
+{
+  "asctime": "2016-02-16T09:51:31Z",
+  "name": "test", "processName": "MainProcess",
+  "filename": "write_in_console.py",
+  "funcName": "<module>",
+  "levelname": "INFO",
+  "lineno": 20,
+  "module": "write_in_console",
+  "threadName": "MainThread",
+  "message": "classic message",
+  "special": "value",
+  "run": 12,
+  "timestamp": "2016-02-16T09:51:31Z",
+  "hostname": "<your_hostname>"
+}
 ```
 
 Extra values are also added at the log level if required.
 
 An exception will be displayed as follow - which suppresses the multiline issue of Traceback :
 ```javascript
-{"asctime": "2016-02-16T09:51:31Z", "name": "test", "processName": "MainProcess", "filename": "write_in_console.py", "funcName": "exception_test", "levelname": "ERROR", "lineno": 26, "module": "write_in_console", "threadName": "MainThread", "message": "This is a fake exception", "exc_info": "Traceback (most recent call last):\n  File \"test/write_in_console.py\", line 24, in exception_test\n    raise Exception('test')\nException: test", "timestamp": "2016-02-16T09:51:31Z", "hostname": "<your_hostname>"}
+{
+  "asctime": "2016-02-16T09:51:31Z",
+  "name": "test", "processName": "MainProcess",
+  "filename": "write_in_console.py",
+  "funcName": "exception_test",
+  "levelname": "ERROR",
+  "lineno": 26,
+  "module": "write_in_console",
+  "threadName": "MainThread",
+  "message": "This is a fake exception",
+  "exc_info": "Traceback (most recent call last):\n  File \"test/write_in_console.py\", line 24, in exception_test\n    raise Exception('test')\nException: test",
+  "timestamp": "2016-02-16T09:51:31Z",
+  "hostname": "<your_hostname>"}
 ```
 
 ## Stream log straight to Logmatic.io

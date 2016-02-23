@@ -18,7 +18,7 @@ pip install logmatic-python
 To use the JSON formatter, simply associate it to any handler such as the StreamHandler here.
 
 ```python
-import logmatic-python
+import logmatic
 
 logger = logging.getLogger()
 
@@ -72,7 +72,7 @@ Good to know, an traceback from an exception is totally wrapped into the JSON ev
 
 ## Stream log straight to Logmatic.io
 
-The LogmaticHandler can be coupled to the JsonFormatter as follow:
+The `LogmaticHandler` can be coupled to the `JsonFormatter` as follow:
 
 ```python
 import logmatic

@@ -3,6 +3,14 @@ Python helpers to send logs to Logmatic.io.
 
 It mainly contains a proper JSON formatter and a socket handler that streams logs directly to Logmatic.io - so no need to use a log shipper if you don't wan't to.
 
+# Pre-requirements
+
+To install this library, use the following command:
+
+```
+pip install logmatic-python
+```
+
 # Usage
 
 ## Use the JSON formatter
@@ -47,23 +55,19 @@ Returns the following format:
 }
 ```
 
-Extra values are also added at the log level if required.
+Let's take some time here to understand what we have:
 
-An exception will be displayed as follow - which suppresses the multiline issue of Traceback :
+- The default format is "%(asctime) %(name) %(processName) %(filename)  %(funcName) %(levelname) %(lineno) %(module) %(threadName) %(message)". So that's why all these attributes are present on all the log events. If you need less, you can change the format when defining the formatter: `logmatic.JsonFormatter(fmt="",...)`
+- The `hostname` attribute here is added all the time as it was defined on the root logger.
+- The `special` and `run` attributes were added specifically to this log event.
+
+Good to know, an traceback from an exception is totally wrapped into the JSON event. That's suppress the handling of multiline formatting:
 ```javascript
 {
-  "asctime": "2016-02-16T09:51:31Z",
-  "name": "test", "processName": "MainProcess",
-  "filename": "write_in_console.py",
-  "funcName": "exception_test",
-  "levelname": "ERROR",
-  "lineno": 26,
-  "module": "write_in_console",
-  "threadName": "MainThread",
-  "message": "This is a fake exception",
+  ...
   "exc_info": "Traceback (most recent call last):\n  File \"test/write_in_console.py\", line 24, in exception_test\n    raise Exception('test')\nException: test",
-  "timestamp": "2016-02-16T09:51:31Z",
-  "hostname": "<your_hostname>"}
+  ...
+}
 ```
 
 ## Stream log straight to Logmatic.io

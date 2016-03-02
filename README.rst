@@ -28,6 +28,7 @@ the StreamHandler here.
 .. code:: python
 
     import logmatic
+    import logging
 
     logger = logging.getLogger()
 
@@ -99,6 +100,7 @@ The LogmaticHandler can be coupled to the JsonFormatter as follow:
 .. code:: python
 
     import logmatic
+    import logging
 
     logger = logging.getLogger()
 

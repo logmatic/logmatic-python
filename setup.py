@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='logmatic-python',
-    version='0.0.8',
+    version='0.0.9',
     author='Logmatic.io support team',
     author_email='support@logmatic.io',
     packages = ['logmatic'],

@@ -20,7 +20,7 @@ class JsonFormatter(jsonlogger.JsonFormatter):
             log_record["timestamp"] = datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S.%fZ")
 
         if self._extra is not None:
-            for key, value in self._extra.iteritems():
+            for key, value in self._extra.items():
                 log_record[key] = value
         return super(JsonFormatter, self).process_log_record(log_record)
 

@@ -41,4 +41,4 @@ class LogmaticHandler(SocketHandler, object):
         self.logmaticKey = logmaticKey
 
     def makePickle(self, record):
-        return self.logmaticKey + " " + self.formatter.format(record) + b'\n'
+        return self.logmaticKey.encode() + " ".encode() + self.formatter.format(record).encode() + "\n".encode()

@@ -2,13 +2,13 @@ from distutils.core import setup
 
 setup(
     name='logmatic-python',
-    version='0.1.3',
+    version='0.1.4',
     author='Logmatic.io support team',
     author_email='support@logmatic.io',
     packages = ['logmatic'],
     scripts=[],
     url='https://github.com/logmatic/logmatic-python',
-    download_url = 'https://github.com/logmatic/logmatic-python/tarball/0.1.2',
+    download_url = 'https://github.com/logmatic/logmatic-python/tarball/0.1.4',
     license='MIT',
     long_description=open('README.rst').read(),
     description='Python plugin to send logs to Logmatic.io',

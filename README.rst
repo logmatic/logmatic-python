@@ -117,4 +117,10 @@ With this configuration, any log coming from your Python's application
 will be sent to your platform and will fulfill the same format as
 described in the previous section.
 
+Integration use-cases
+=====================
+- Gunicorn_: Log in Json to a syslog server or directly to Logmatic.io
+
+.. _Gunicorn: https://github.com/logmatic/logmatic-python/blob/master/doc/gunicorn.md
+
 Please contact us if you want anything more to be added in this toolset!

@@ -7,7 +7,7 @@ import socket
 class JsonFormatter(jsonlogger.JsonFormatter):
     def __init__(self,
                  fmt="%(asctime) %(name) %(processName) %(filename)  %(funcName) %(levelname) %(lineno) %(module) %(threadName) %(message)",
-                 datefmt="%Y-%m-%dT%H:%M:%SZ",
+                 datefmt="%Y-%m-%dT%H:%M:%S%z",
                  extra={}, *args, **kwargs):
         self._extra = extra
         jsonlogger.JsonFormatter.__init__(self, fmt=fmt, datefmt=datefmt, *args, **kwargs)

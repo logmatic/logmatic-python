@@ -1,5 +1,6 @@
 logmatic-python
 ===============
+*Link to the Logmatic.io documentation: http://doc.logmatic.io/docs/python*
 
 Python helpers to send logs to Logmatic.io.
 

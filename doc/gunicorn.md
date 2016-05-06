@@ -25,7 +25,7 @@ qualname=gunicorn.access
 class=logmatic.SysLogJsonHandler
 level=INFO
 formatter = json
-args=('/dev/log', handlers.SysLogHandler.LOG_LOCAL7, None ,"my_app")
+args=(('localhost', handlers.SYSLOG_UDP_PORT), handlers.SysLogHandler.LOG_LOCAL7, handlers.socket.SOCK_DGRAM, "My_app1")
 
 [formatter_json]
 format = %(asctime) %(name) %(processName) %(filename)  %(funcName) %(levelname) %(lineno) %(module) %(threadName) %(message)

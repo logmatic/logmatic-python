@@ -4,7 +4,7 @@ from pythonjsonlogger import jsonlogger
 import datetime
 import socket
 
-class JsonFormatter(jsonlogger.JsonFormatter):
+class JsonFormatter(jsonlogger.JsonFormatter, object):
     def __init__(self,
             fmt = "%(asctime) %(name) %(processName) %(filename)  %(funcName) %(levelname) %(lineno) %(module) %(threadName) %(message)",
             datefmt = "%Y-%m-%dT%H:%M:%SZ",

@@ -4,7 +4,8 @@ import datetime
 import socket
 
 
-class JsonFormatter(jsonlogger.JsonFormatter):
+
+class JsonFormatter(jsonlogger.JsonFormatter, object):
     def __init__(self,
                  fmt="%(asctime) %(name) %(processName) %(filename)  %(funcName) %(levelname) %(lineno) %(module) %(threadName) %(message)",
                  datefmt="%Y-%m-%dT%H:%M:%S%z",
@@ -42,7 +43,7 @@ class LogmaticHandler(logging.handlers.SocketHandler, object):
 
 
 # Allow SyslogHandler to emit in Json with a prefix (for instance appname)
-class SysLogJsonHandler(logging.handlers.SysLogHandler):
+class SysLogJsonHandler(logging.handlers.SysLogHandler, object):
     # Override constructor
     def __init__(self, address=('localhost', logging.handlers.SYSLOG_UDP_PORT),
                  facility=logging.handlers.SysLogHandler.LOG_USER, socktype=None, prefix=""):

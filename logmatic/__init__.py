@@ -1,7 +1,7 @@
 import logging.handlers
 from pythonjsonlogger import jsonlogger
 import datetime
-import socket
+import ssl
 
 
 
@@ -31,13 +31,24 @@ class JsonFormatter(jsonlogger.JsonFormatter, object):
 # on Python 2.6
 class LogmaticHandler(logging.handlers.SocketHandler, object):
     """Python logging handler. Sends events over TCP.
-    :param host: The host of the logstash server.
-    :param port: The port of the logstash server (default 5959).
+    :param host: The host of the Logmatic.io server.
+    :param port: The port of the Logmatio.io server (default 10514).
     """
 
-    def __init__(self, logmaticKey, host="api.logmatic.io", port=10514):
+    def __init__(self, logmaticKey, host="api.logmatic.io", port=10515, ssl=True):
         super(LogmaticHandler, self).__init__(host, port)
+        self.ssl = ssl
         self.logmaticKey = logmaticKey
+
+    def makeSocket(self, timeout=1):
+        s = super(LogmaticHandler, self).makeSocket(timeout)
+        if self.ssl:
+            socket = ssl.wrap_socket(s)
+        else:
+            socket = s
+
+        return socket
+
 
     def makePickle(self, record):
         return self.logmaticKey.encode() + " ".encode() + self.formatter.format(record).encode() + "\n".encode()

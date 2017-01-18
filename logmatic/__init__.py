@@ -35,7 +35,7 @@ class LogmaticHandler(logging.handlers.SocketHandler, object):
     :param port: The port of the Logmatio.io server (default 10514).
     """
 
-    def __init__(self, logmaticKey, host="api.logmatic.io", port=10514, ssl=False):
+    def __init__(self, logmaticKey, host="api.logmatic.io", port=10515, ssl=True):
         super(LogmaticHandler, self).__init__(host, port)
         self.ssl = ssl
         self.logmaticKey = logmaticKey

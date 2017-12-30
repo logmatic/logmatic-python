@@ -28,6 +28,7 @@ the StreamHandler here.
 
 .. code:: python
 
+    import socket
     import logmatic
     import logging
 
